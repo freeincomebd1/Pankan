@@ -1,0 +1,107 @@
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad Viewing Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Light background for better contrast */
+        }
+
+        header {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 25px; /* Increased padding for larger buttons */
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px; /* Increased font size for better visibility */
+            margin: 10px 5px;
+            cursor: pointer;
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s; /* Smooth transition */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+        }
+
+        button:hover {
+            background-color: #45a049; /* Darker green */
+        }
+
+        p {
+            font-size: 18px;
+            color: #666; /* Lighter text color for better readability */
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            text-align: center;
+            background: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ad Viewing Platform</h1>
+        <nav>
+            <a href="login.php">লগইন</a>
+            <a href="signup.php">সাইন আপ</a>
+        </nav>
+    </header>
+    
+    <main>
+        <h2>স্বাগতম, <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'অতিথি'; ?></h2>
+        
+        <?php if (isset($_SESSION['username'])): ?>
+            <div class="button-container">
+                <button onclick="window.location.href='admin_support.php'">Admin Support</button>
+                <button onclick="window.open('https://t.me/freeincometop', '_blank')">Join Telegram</button>
+            </div>
+        <?php else: ?>
+            <p>আপনার অ্যাকাউন্টের জন্য লগইন করুন বা সাইন আপ করুন।</p>
+        <?php endif; ?>
+    </main>
+    
+    <footer>
+        <p>© 2025 Ad Viewing Platform. All rights reserved.</p>
+    </footer>
+</body>
+</html>
